@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Prediksi Penyakit Jantung</title>
+</head>
+<body>
+    <h1>Form Prediksi Penyakit Jantung</h1>
+    <form method="POST">
+        <label>Umur: <input type="number" step="any" name="umur"></label><br>
+        <label>Jenis Kelamin (0=L, 1=P): <input type="number" step="any" name="jenis_kelamin"></label><br>
+        <label>Nyeri Dada: <input type="number" step="any" name="nyeri_dada"></label><br>
+        <label>Tekanan Darah: <input type="number" step="any" name="tekanan_darah"></label><br>
+        <label>Kolesterol: <input type="number" step="any" name="kolesterol"></label><br>
+        <label>Gula Darah: <input type="number" step="any" name="gula_darah"></label><br>
+        <label>Hasil EKG: <input type="number" step="any" name="ekg"></label><br>
+        <label>Detak Jantung: <input type="number" step="any" name="detak_jantung"></label><br>
+        <label>Sakit Dada Aktivitas: <input type="number" step="any" name="sakit_dada_aktivitas"></label><br>
+        <label>Atribut Hasil Prediksi Penyakit Jantung: <input type="number" step="any" name="atribut_hasil_prediksi_penyakit_jantung"></label><br><br>
+
+        <button type="submit">Prediksi</button>
+    </form>
+
+    {% if prediction %}
+        <h2>Hasil Prediksi:</h2>
+        <p>{{ prediction }}</p>
+    {% endif %}
+</body>
+</html>

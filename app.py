@@ -23,6 +23,7 @@ def index():
 
     if request.method == "POST":
         try:
+            print("\n--- Mulai Proses Prediksi ---")
             # Ambil input dari form HTML
             input_data = [
                 float(request.form["umur"]),
@@ -36,13 +37,16 @@ def index():
                 float(request.form["sakit_dada_aktivitas"]),
                 float(request.form["atribut_hasil_prediksi_penyakit_jantung"])
             ]
+            print("Input mentah:", input_data)
 
             # Ubah ke DataFrame untuk standardisasi
             df = pd.DataFrame([input_data], columns=feature_names)
             input_scaled = scaler.transform(df)
+            print("Setelah transformasi (scaled):", input_scaled)
 
             # Prediksi
             result = elm.predict(input_scaled).argmax(axis=1)[0]
+            print("Hasil prediksi kelas (angka):", result)
 
             # Mapping label
             label_map = {
@@ -53,9 +57,12 @@ def index():
                 4: "Penyakit jantung stadium 4"
             }
             prediction = label_map.get(result, "Tidak diketahui")
+            print("Hasil prediksi akhir:", prediction)
+            print("--- Proses Selesai ---\n")
 
         except Exception as e:
             prediction = f"Terjadi error: {e}"
+            print("Terjadi error saat prediksi:", e)
 
     return render_template("form.html", prediction=prediction)
 

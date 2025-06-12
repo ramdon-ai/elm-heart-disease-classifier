@@ -13,8 +13,8 @@ elm = ELM(10, encoder.transform([[0]]).shape[1], classification="c")
 elm.load("elm_model.h5")
 
 # 2. Daftar nama fitur (pastikan sesuai saat training)
-feature_names = ['Umur', 'Jenis Kelamin', 'Nyeri Dada', 'Tekanan Darah', 'Kolesterol',
-                 'Gula Darah', 'Hasil EKG', 'Detak Jantung', 'Sakit Dada Selama Beraktivitas', 
+feature_names = ['Umur', 'Jenis Kelamin', 'Nyeri Dada Saat Beraktivitas', 'Tekanan Darah', 'Kadar Kolesterol',
+                 'Gula Darah', 'Hasil Uji EKG', 'Denyut Jantung', 'Sakit Dada Selama Beraktivitas', 
                  'Atribut Hasil Prediksi Penyakit Jantung']
 
 @app.route("/", methods=["GET", "POST"])

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="id">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
 <head>
     <meta charset="UTF-8">
     <title>Prediksi Penyakit Jantung</title>
@@ -22,8 +23,10 @@
     </form>
 
     {% if prediction %}
-        <h2>Hasil Prediksi:</h2>
-        <p>{{ prediction }}</p>
+    <div class="result">
+        <strong>Hasil Prediksi:</strong><br>
+    {{ prediction }}
+    </div>
     {% endif %}
 </body>
 </html>
